@@ -1,0 +1,79 @@
+Name         : kf5-krunner
+Version      : 4.100.0
+Release      : 1
+Group        : System/Base
+License      : GPLv2+
+Summary      : KDE Frameworks 5 Tier 3 module for KRunner
+Description  : |
+  KDE Frameworks 5 Tier 3 module for KRunner.
+URL          : http://www.kde.org
+SetupOptions : -q -n %{name}-%{version}/upstream
+
+Sources:
+    - "%{name}-%{version}.tar.xz"
+
+RpmLintIgnore:
+    - devel-file-in-non-devel-package
+    - no-changelogname-tag
+    - library-without-ldconfig-postin
+    - library-without-ldconfig-postun
+
+Configure    : none
+Builder      : none
+
+PkgBR:
+    - kf5-rpm-macros
+    - extra-cmake-modules
+    - kf5-kconfig-devel
+    - kf5-kcoreaddons-devel
+    - kf5-ki18n-devel
+    - kf5-kservice-devel
+    - kf5-plasma-devel
+    - kf5-solid-devel
+    - kf5-threadweaver-devel
+PkgConfigBR:
+    - Qt5Core
+    - Qt5DBus
+    - Qt5Xml
+    - Qt5Network
+    - Qt5Gui
+    - Qt5Widgets
+    - Qt5Concurrent
+    - Qt5Test
+    - Qt5Qml
+    - Qt5Quick
+Requires:
+    - kf5-filesystem
+
+RequiresPost:
+    - /sbin/ldconfig
+RequiresPostUn:
+    - /sbin/ldconfig
+
+Files:
+    - "%doc README.md"
+    - "%{_kf5_libdir}/libKF5Runner.so.*"
+    - "%{_kf5_qmldir}/org/kde/runnermodel"
+    - "%{_kf5_datadir}/kservicetypes5/plasma-runner.desktop"
+
+SubPackages:
+    - Name: devel
+      Group: Development/Libraries
+      Summary: Development files for %{name}
+      Description: |
+        The %{name}-devel package contains the files necessary to develop applications
+        that use %{name}.
+      Requires:
+          - kf5-kconfig-devel
+          - kf5-kcoreaddons-devel
+          - kf5-ki18n-devel
+          - kf5-kservice-devel
+          - kf5-plasma-devel
+          - kf5-solid-devel
+          - kf5-threadweaver-devel
+      Files:
+          - "%{_kf5_includedir}/krunner_version.h"
+          - "%{_kf5_includedir}/KRunner"
+          - "%{_kf5_libdir}/libKF5Runner.so"
+          - "%{_kf5_libdir}/cmake/KF5Runner"
+          - "%{_qt5_datadir}/mkspecs/modules/qt_KRunner.pri"
