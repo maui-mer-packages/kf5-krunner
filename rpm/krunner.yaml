@@ -1,5 +1,5 @@
-Name         : kf5-krunner
-Version      : 5.0.0
+Name         : krunner
+Version      : 5.1.0
 Release      : 1
 Group        : System/Base
 License      : GPLv2+
@@ -24,13 +24,13 @@ Builder      : none
 PkgBR:
     - kf5-rpm-macros
     - extra-cmake-modules
-    - kf5-kconfig-devel
-    - kf5-kcoreaddons-devel
-    - kf5-ki18n-devel
-    - kf5-kservice-devel
-    - kf5-plasma-devel
-    - kf5-solid-devel
-    - kf5-threadweaver-devel
+    - kconfig-devel
+    - kcoreaddons-devel
+    - ki18n-devel
+    - kservice-devel
+    - plasma-devel
+    - solid-devel
+    - threadweaver-devel
 PkgConfigBR:
     - Qt5Core
     - Qt5DBus
@@ -54,7 +54,7 @@ Files:
     - "%doc README.md"
     - "%{_kf5_libdir}/libKF5Runner.so.*"
     - "%{_kf5_qmldir}/org/kde/runnermodel"
-    - "%{_kf5_datadir}/kservicetypes5/plasma-runner.desktop"
+    - "%{_kf5_servicetypesdir}/plasma-runner.desktop"
 
 SubPackages:
     - Name: devel
@@ -64,16 +64,16 @@ SubPackages:
         The %{name}-devel package contains the files necessary to develop applications
         that use %{name}.
       Requires:
-          - kf5-kconfig-devel
-          - kf5-kcoreaddons-devel
-          - kf5-ki18n-devel
-          - kf5-kservice-devel
-          - kf5-plasma-devel
-          - kf5-solid-devel
-          - kf5-threadweaver-devel
+          - kconfig-devel
+          - kcoreaddons-devel
+          - ki18n-devel
+          - kservice-devel
+          - plasma-devel
+          - solid-devel
+          - threadweaver-devel
       Files:
           - "%{_kf5_includedir}/krunner_version.h"
           - "%{_kf5_includedir}/KRunner"
           - "%{_kf5_libdir}/libKF5Runner.so"
-          - "%{_kf5_libdir}/cmake/KF5Runner"
-          - "%{_qt5_datadir}/mkspecs/modules/qt_KRunner.pri"
+          - "%{_kf5_cmakedir}/KF5Runner"
+          - "%{_kf5_mkspecsdir}/qt_KRunner.pri"
