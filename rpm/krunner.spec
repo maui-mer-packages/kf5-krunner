@@ -8,8 +8,14 @@ Name:       krunner
 # >> macros
 # << macros
 
+# >> bcond_with
+# << bcond_with
+
+# >> bcond_without
+# << bcond_without
+
 Summary:    KDE Frameworks 5 Tier 3 module for KRunner
-Version:    5.1.0+git
+Version:    5.2.0
 Release:    1
 Group:      System/Base
 License:    GPLv2+
